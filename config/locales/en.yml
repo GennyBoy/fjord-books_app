@@ -31,3 +31,11 @@
 
 en:
   hello: "Hello world"
+  books: "Books"
+  new_book: "New Book"
+  editing_book: "Editing Book"
+  back: "Back"
+  show: "Show"
+  edit: "Edit"
+  destroy: "Destroy"
+  confirm_delete: "Are you sure you want to delete this book?"

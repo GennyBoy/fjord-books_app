@@ -205,3 +205,11 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  books: 本一覧
+  new_book: 新しい本を追加
+  editing_book: 本の情報を編集
+  back: 戻る
+  show: 詳細
+  edit: 編集
+  destroy: 削除
+  confirm_delete: 削除して本当によろしいですか
