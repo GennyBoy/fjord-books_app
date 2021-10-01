@@ -9,10 +9,13 @@ ja:
         memo: メモ  #g
         picture: 写真  #g
         title: 題名  #g
-
-  books: 本一覧
-  new_book: 新しい本を追加
-  editing_book: 本の情報を編集
+  books:
+    edit:
+      title: 本の情報を編集
+    index:
+      title: 本一覧
+    new:
+      title: 新しい本を追加
   back: 戻る
   show: 詳細
   edit: 編集

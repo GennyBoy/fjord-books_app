@@ -1,7 +1,11 @@
 en:
-  books: "Books"
-  new_book: "New Book"
-  editing_book: "Editing Book"
+  books:
+    edit:
+      title: "Editing Book"
+    index:
+      title: "Books"
+    new:
+      title: "New Book"
   back: "Back"
   show: "Show"
   edit: "Edit"
