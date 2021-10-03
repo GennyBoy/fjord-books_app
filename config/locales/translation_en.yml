@@ -1,0 +1,13 @@
+en:
+  books:
+    edit:
+      title: "Editing Book"
+    index:
+      title: "Books"
+    new:
+      title: "New Book"
+  back: "Back"
+  show: "Show"
+  edit: "Edit"
+  destroy: "Destroy"
+  confirm_delete: "Are you sure you want to delete this book?"

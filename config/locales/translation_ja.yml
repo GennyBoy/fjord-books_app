@@ -1,0 +1,23 @@
+ja:
+  activerecord:
+    models:
+      book: 本  #g
+
+    attributes:
+      book:
+        author: 著者  #g
+        memo: メモ  #g
+        picture: 写真  #g
+        title: 題名  #g
+  books:
+    edit:
+      title: 本の情報を編集
+    index:
+      title: 本一覧
+    new:
+      title: 新しい本を追加
+  back: 戻る
+  show: 詳細
+  edit: 編集
+  destroy: 削除
+  confirm_delete: 削除して本当によろしいですか
