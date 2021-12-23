@@ -5,4 +5,8 @@ class Users::UsersController < Devise::RegistrationsController
     @users = User.order(:id).page(params[:page])
     render :'devise/users/index'
   end
+
+  def show
+    @user = User.find_by(id: params[:id])
+  end
 end
