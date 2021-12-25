@@ -55,6 +55,12 @@ ja:
       send_instructions: 'アカウントの凍結解除方法を数分以内にメールでご連絡します。'
       send_paranoid_instructions: 'アカウントが見つかった場合、アカウントの凍結解除方法を数分以内にメールでご連絡します。'
       unlocked: 'アカウントを凍結解除しました。'
+    views:
+      logged_in_as: 'ログインしているユーザー :'
+      edit_profile: 'ユーザーを編集'
+      logout: 'ログアウト'
+      login: 'ログイン'
+      sign_up: 'アカウント登録'
   errors:
     messages:
       already_confirmed: 'は既に登録済みです。ログインしてください。'
