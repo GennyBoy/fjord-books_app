@@ -53,6 +53,6 @@
 
 <h3><%= t('devise.registrations.cancel_my_account') %></h3>
 
-<p><%= t('views.common.unhappy_confirm') %><%= button_to t('devise.registrations.cancel_my_account'), registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<p><%= t('views.common.unhappy_confirm') %><%= button_to t('devise.registrations.cancel_my_account'), registration_path(resource_name), data: { confirm: t('views.common.delete_confirm') }, method: :delete %></p>
 
 <%= link_to t('views.common.back'), :back %>
