@@ -61,6 +61,7 @@ ja:
       logout: 'ログアウト'
       login: 'ログイン'
       sign_up: 'アカウント登録'
+      forgot_your_password: 'メールアドレスを忘れた方'
   errors:
     messages:
       already_confirmed: 'は既に登録済みです。ログインしてください。'

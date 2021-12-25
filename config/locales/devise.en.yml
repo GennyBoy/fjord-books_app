@@ -61,6 +61,7 @@ en:
       logout: "Logout"
       login: "Login"
       sign_up: "Sign up"
+      forgot_your_password: "Forgot your password?"
   errors:
     messages:
       already_confirmed: "was already confirmed, please try signing in"
