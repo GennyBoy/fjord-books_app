@@ -45,6 +45,8 @@ ja:
       update_needs_confirmation: 'アカウント情報を変更しました。変更されたメールアドレスの本人確認のため、本人確認用メールより確認処理をおこなってください。'
       updated: 'アカウント情報を変更しました。'
       updated_but_not_signed_in: 'アカウント情報を変更しました。パスワードが変更されているため、再度ログインしてください'
+      require_current_password_when_update: '変更を適用するために現在のパスワードを入力してください'
+      cancel_my_account: 'アカウントを削除する'
     sessions:
       signed_in: 'ログインしました。'
       signed_out: 'ログアウトしました。'

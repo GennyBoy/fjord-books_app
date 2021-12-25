@@ -212,9 +212,13 @@ ja:
       destroy: 削除
       new: 新規作成
       back: 戻る
+      update: 更新
       delete_confirm: よろしいですか？
+      unhappy_confirm: お気に召さなかったですか？
       title_new: "%{name}の新規作成"
       title_edit: "%{name}の編集"
+      optional_input_description: '変更しない場合は何も入力しないでください'
+      input_minimum_characters: "%{number}字以上の文字"
     pagination:
       first: '最初'
       last: '最後'

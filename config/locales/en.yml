@@ -220,9 +220,13 @@ en:
       destroy: Destroy
       new: "New record"
       back: Back
+      update: Update
       delete_confirm: "Are you sure?"
+      unhappy_confirm: "Unhappy?"
       title_new: "New %{name}"
       title_edit: "Editing %{name}"
+      optional_input_description: "leave blank if you don't want to change it"
+      input_minimum_characters: "%{number} characters minimum"
   controllers:
     common:
       notice_create: "%{name} was successfully created."
