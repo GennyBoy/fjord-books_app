@@ -22,7 +22,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # PUT /resource
   def update
     super
-    # TODO: ここで書籍一覧にリダイレクトされるのちょっよ微妙だから後で修正する
   end
 
   # DELETE /resource
@@ -38,6 +37,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def cancel
   #   super
   # end
+
+  def after_update_path_for(resource)
+    # 変更されたことを認識しやすくするため、パスワードの変更がない場合のリダイレクト先をユーザー編集画面にした
+    sign_in_after_change_password? ? edit_user_registration_path : new_session_path(resource_name)
+  end
 
   protected
 
