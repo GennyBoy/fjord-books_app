@@ -56,8 +56,8 @@ ja:
       send_paranoid_instructions: 'アカウントが見つかった場合、アカウントの凍結解除方法を数分以内にメールでご連絡します。'
       unlocked: 'アカウントを凍結解除しました。'
     views:
-      logged_in_as: 'ログインしているユーザー :'
-      edit_profile: 'ユーザーを編集'
+      logged_in_as: 'ログインしているアカウント :'
+      edit_profile: 'アカウントを編集'
       logout: 'ログアウト'
       login: 'ログイン'
       sign_up: 'アカウント登録'
