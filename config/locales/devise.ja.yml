@@ -61,8 +61,21 @@ ja:
       logout: 'ログアウト'
       login: 'ログイン'
       sign_up: 'アカウント登録'
-      forgot_your_password: 'メールアドレスを忘れた方'
+      forgot_your_password: 'パスワードを忘れた方'
       send_me_reset_password_instructions: 'パスワードの再設定方法を送信'
+      mailer:
+        navigation_to_the_email_confirmation_link: '下記リンクからメールアドレスの確認を行ってください。'
+        confirm_my_account_link: 'メールアドレスを確認する'
+        notification_email_is_being_changed_to: '右記のメールアドレスに変更されます。'
+        notification_email_has_been_changed_to: '右記のメールアドレスに変更されました。'
+        notification_email_has_been_changed: 'パスワードが変更されました。'
+        navigation_to_change_password_link: 'パスワードの再設定が依頼されました。下記リンクからパスワードを再設定してください。'
+        change_my_password_link: 'パスワードを変更'
+        instruction_for_users_did_not_request_changing_password: 'パスワードの再設定を依頼していない場合は、このメールは無視してください。'
+        explanation_for_when_new_password_will_be_applied: '上記リンクにアクセスして新しいパスワードを設定するまで、パスワードは変更されません。'
+        notification_account_has_been_locked: 'ログイン連続失敗回数が上限を超えたため、あなたのアカウントはロックされました。'
+        navigation_to_unlock_account_link: 'ロックを解除する場合、下記のリンクをクリックしてください:'
+        unlock_my_account_link: 'アカウントロックを解除する'
   errors:
     messages:
       already_confirmed: 'は既に登録済みです。ログインしてください。'

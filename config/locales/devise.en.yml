@@ -63,6 +63,20 @@ en:
       sign_up: "Sign up"
       forgot_your_password: "Forgot your password?"
       send_me_reset_password_instructions: "Send me reset password instructions"
+      mailer:
+        welcome: "Welcome"
+        navigation_to_the_email_confirmation_link: "You can confirm your account email through the link below:"
+        confirm_my_account_link: "Confirm my account"
+        notification_email_is_being_changed_to: "We're contacting you to notify you that your email is being changed to"
+        notification_email_has_been_changed_to: "We're contacting you to notify you that your email has been changed to"
+        notification_email_has_been_changed: "We're contacting you to notify you that your password has been changed."
+        navigation_to_change_password_link: "Someone has requested a link to change your password. You can do this through the link below."
+        change_my_password_link: "Change my password"
+        instruction_for_users_did_not_request_changing_password: "If you didn't request this, please ignore this email."
+        explanation_for_when_new_password_will_be_applied: "Your password won't change until you access the link above and create a new one."
+        notification_account_has_been_locked: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+        navigation_to_unlock_account_link: "Click the link below to unlock your account:"
+        unlock_my_account_link: "Unlock my account"
   errors:
     messages:
       already_confirmed: "was already confirmed, please try signing in"
