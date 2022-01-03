@@ -2,6 +2,7 @@
 
 one:
   email: 'test1@example.com'
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
   post_code: '111-1111'
   address: '東京都東京区東京1-1-1'
   self_introduction: 'これは自己紹介文です。'
