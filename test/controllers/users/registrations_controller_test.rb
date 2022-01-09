@@ -54,7 +54,7 @@ class Users::RegistrationsControllerTest < ActionDispatch::IntegrationTest
               current_password: 'password'
             }
           }
-    assert_redirected_to edit_user_registration_path
+    assert_redirected_to root_path
 
     @user.reload
     assert_equal 'test2@example.com', @user.email

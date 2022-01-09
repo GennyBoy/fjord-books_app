@@ -38,11 +38,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  def after_update_path_for(resource)
-    # 変更されたことを認識しやすくするため、パスワードの変更がない場合のリダイレクト先をユーザー編集画面にした
-    sign_in_after_change_password? ? edit_user_registration_path : new_session_path(resource_name)
-  end
-
   protected
 
   # If you have extra params to permit, append them to the sanitizer.
