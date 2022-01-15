@@ -163,9 +163,4 @@ class UsersTest < ApplicationSystemTestCase
     assert_current_path new_user_session_path
     assert_text 'アカウント登録もしくはログインしてください。'
   end
-
-  test 'redirected to login page when not logged in' do
-    visit users_url
-    assert_current_path new_user_session_path
-  end
 end
