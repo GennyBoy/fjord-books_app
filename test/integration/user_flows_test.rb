@@ -47,52 +47,58 @@ class UserFlowsTest < ActionDispatch::IntegrationTest
     get new_user_registration_path
     assert_select 'h2', 'アカウント登録'
 
-    post user_registration_path,
-         params: {
-           user: {
-             email: 'test2@example.com',
-             password: 'password',
-             password_confirmation: 'password',
-             post_code: '222-2222',
-             address: '千葉県千葉市1-1-1',
-             self_introduction: 'This is my self intro'
+    assert_difference('User.count', 1) do
+      post user_registration_path,
+           params: {
+             user: {
+               email: 'test3@example.com',
+               password: 'password',
+               password_confirmation: 'password',
+               post_code: '222-2222',
+               address: '千葉県千葉市1-1-1',
+               self_introduction: 'This is my self intro'
+             }
            }
-         }
+    end
     assert_response :redirect
     follow_redirect!
     assert_response :success
     assert_select 'p', 'アカウント登録が完了しました。'
   end
 
-  test 'cannot create a user account when password_confirmation is wrong' do
-    post user_registration_path,
-         params: {
-           user: {
-             email: 'test2@example.com',
-             password: 'password',
-             password_confirmation: 'wrong_password',
-             post_code: '222-2222',
-             address: '千葉県千葉市1-1-1',
-             self_introduction: 'This is my self intro'
+  test 'cannot create a user account when password_confirmation is not same as password' do
+    assert_no_difference('User.count') do
+      post user_registration_path,
+           params: {
+             user: {
+               email: 'test3@example.com',
+               password: 'password',
+               password_confirmation: 'wrong_password',
+               post_code: '222-2222',
+               address: '千葉県千葉市1-1-1',
+               self_introduction: 'This is my self intro'
+             }
            }
-         }
+    end
     assert_response :success
-    assert_select 'h2', 'エラーが発生したため ユーザー は保存されませんでした:'
+    assert_select '#error_explanation h2', 'エラーが発生したため ユーザー は保存されませんでした:'
     assert_select 'li', 'パスワード（確認用）とパスワードの入力が一致しません'
   end
 
   test 'cannot create a user account when email is blank' do
-    post user_registration_path,
-         params: {
-           user: {
-             email: '',
-             password: 'password',
-             password_confirmation: 'password',
-             post_code: '222-2222',
-             address: '千葉県千葉市1-1-1',
-             self_introduction: 'This is my self intro'
+    assert_no_difference('User.count') do
+      post user_registration_path,
+           params: {
+             user: {
+               email: '',
+               password: 'password',
+               password_confirmation: 'password',
+               post_code: '222-2222',
+               address: '千葉県千葉市1-1-1',
+               self_introduction: 'This is my self intro'
+             }
            }
-         }
+    end
     assert_response :success
     assert_select 'h2', 'エラーが発生したため ユーザー は保存されませんでした:'
     assert_select 'li', 'Eメールを入力してください'
@@ -102,12 +108,14 @@ class UserFlowsTest < ActionDispatch::IntegrationTest
     get new_user_password_path
     assert_select 'h2', 'パスワードを忘れた方'
 
-    post user_password_path,
-         params: {
-           user: {
-             email: 'test1@example.com'
+    assert_difference('ActionMailer::Base.deliveries.size', 1) do
+      post user_password_path,
+           params: {
+             user: {
+               email: 'test1@example.com'
+             }
            }
-         }
+    end
     assert_response :redirect
     follow_redirect!
     assert_response :success
@@ -132,10 +140,16 @@ class UserFlowsTest < ActionDispatch::IntegrationTest
               current_password: 'password'
             }
           }
-    assert_response :redirect
+    assert_redirected_to root_path
     follow_redirect!
     assert_response :success
     assert_select 'p', 'アカウント情報を変更しました。'
+
+    @user.reload
+    assert_equal 'test1_edit@example.com', @user.email
+    assert_equal '222-2222', @user.post_code
+    assert_equal '千葉県千葉市千葉１−１−１', @user.address
+    assert_equal 'これは新しい自己紹介文です', @user.self_introduction
   end
 
   test 'cannot edit a user account with wrong current password' do
@@ -159,6 +173,12 @@ class UserFlowsTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select 'h2', 'エラーが発生したため ユーザー は保存されませんでした:'
     assert_select 'li', '現在のパスワードは不正な値です'
+
+    @user.reload
+    assert_not_equal 'test1_edit@example.com', @user.email
+    assert_not_equal '222-2222', @user.post_code
+    assert_not_equal '千葉県千葉市千葉１−１−１', @user.address
+    assert_not_equal 'これは新しい自己紹介文です', @user.self_introduction
   end
 
   test 'cannot edit a user account with blank current password' do
@@ -182,6 +202,12 @@ class UserFlowsTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select 'h2', 'エラーが発生したため ユーザー は保存されませんでした:'
     assert_select 'li', '現在のパスワードを入力してください'
+
+    @user.reload
+    assert_not_equal 'test1_edit@example.com', @user.email
+    assert_not_equal '222-2222', @user.post_code
+    assert_not_equal '千葉県千葉市千葉１−１−１', @user.address
+    assert_not_equal 'これは新しい自己紹介文です', @user.self_introduction
   end
 
   test 'can delete a user account' do
@@ -190,21 +216,16 @@ class UserFlowsTest < ActionDispatch::IntegrationTest
     get edit_user_registration_path
     assert_select 'h2', 'アカウントを編集'
 
-    delete user_registration_path
-    assert_response :redirect
-    follow_redirect!
-    assert_select 'p', 'アカウント登録もしくはログインしてください。'
-  end
-
-  test 'can see the index page' do
-    # TODO
-  end
-
-  test 'can see the user show page' do
-    # TODO
+    assert_difference('User.count', -1) do
+      delete user_registration_path
+    end
   end
 
   test 'redirect to the login page when not logged in' do
-    # TODO
+    get books_path
+    assert_redirected_to new_user_session_path
+
+    get users_path
+    assert_redirected_to new_user_session_path
   end
 end
