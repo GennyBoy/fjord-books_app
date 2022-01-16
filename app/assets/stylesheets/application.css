@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+.vertical-align-top {
+    vertical-align: top
+}
