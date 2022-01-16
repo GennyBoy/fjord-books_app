@@ -15,7 +15,7 @@
   <% if @user.avatar.persisted? %>
     <%= image_tag @user.avatar.variant(resize_to_limit: [100, 100]) %>
   <% else %>
-    <%= "未登録" %>
+    未登録
   <% end %>
 </p>
 
