@@ -2,3 +2,12 @@ inherit_gem:
   rubocop-fjord:
     - "config/rubocop.yml"
     - "config/rails.yml"
+
+inherit_mode:
+  merge:
+    - Exclude
+
+AllCops:
+  Exclude:
+    - 'db/migrate/*'
+    - 'db/schema.rb'
