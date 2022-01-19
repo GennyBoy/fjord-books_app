@@ -19,7 +19,7 @@ class SignupTest < ActionDispatch::IntegrationTest
                avatar: fixture_file_upload('david.png', 'image/png'),
                email: 'test3@example.com',
                password: 'password',
-               password_confirmation: 'password',
+               password_confirmation: 'password'
              }
            }
     end
