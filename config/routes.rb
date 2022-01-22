@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   resources :books
-  resources :users, only: %i(index show)
+  resources :users, only: %i(index show), module: 'users'
   devise_scope :user do
     get 'sign_in', to: 'users/sessions#new'
   end
