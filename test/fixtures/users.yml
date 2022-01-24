@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: 'test1@example.com'
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  post_code: '111-1111'
+  address: '東京都東京区東京1-1-1'
+  self_introduction: 'これは自己紹介文です。'
+
+two:
+  email: 'test2@example.com'
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  post_code: '111-1112'
+  address: '東京都東京区東京1-1-2'
+  self_introduction: 'これはテストユーザ２の自己紹介文です。'
