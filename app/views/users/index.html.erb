@@ -5,6 +5,7 @@
     <tr>
       <th><%= User.human_attribute_name(:email) %></th>
       <th><%= User.human_attribute_name(:name) %></th>
+      <th><%= User.human_attribute_name(:avatar) %></th>
       <th><%= User.human_attribute_name(:postal_code) %></th>
       <th><%= User.human_attribute_name(:address) %></th>
       <th></th>
@@ -16,6 +17,11 @@
       <tr>
         <td><%= user.email %></td>
         <td><%= user.name %></td>
+        <% if user.avatar.attached? %>
+          <td><%= image_tag user.avatar.variant(resize_to_limit: [50, 50]) %></td>
+        <% else %>
+          <td>未登録</td>
+        <% end %>
         <td><%= user.postal_code %></td>
         <td><%= user.address %></td>
         <td><%= link_to t('views.common.show'), user %></td>
