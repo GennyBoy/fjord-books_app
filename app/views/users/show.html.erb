@@ -33,6 +33,11 @@
   <% end %>
 </p>
 
+<p>
+  <strong><%= @user.following.count %></strong> フォロー中 | 
+  <strong><%= @user.followers.count %></strong> フォロワー
+</p>
+
 <% if current_user == @user %>
   <%= link_to t('views.common.edit'), edit_user_registration_path %> |
 <% end %>
