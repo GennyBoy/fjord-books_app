@@ -34,8 +34,8 @@
 </p>
 
 <p>
-  <strong><%= @user.following.count %></strong> フォロー中 |
-  <strong><%= @user.followers.count %></strong> フォロワー
+  <a href="<%= following_user_path %>"><strong><%= @user.following.count %></strong> フォロー中</a> |
+  <a href="<%= followers_user_path %>"><strong><%= @user.followers.count %></strong> フォロワー</a>
 </p>
 
 <% if current_user == @user %>
