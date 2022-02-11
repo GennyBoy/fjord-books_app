@@ -35,14 +35,14 @@
 
 <p>
   <% if @user.following.count == 0 %>
-    <strong><%= @user.following.count %></strong> フォロー中 |
+    <strong><%= @user.following.count %></strong> <%= t('follow_relationship.views.following') %> |
   <% else %>
-    <a href="<%= following_user_path %>"><strong><%= @user.following.count %></strong> フォロー中</a> |
+    <a href="<%= following_user_path %>"><strong><%= @user.following.count %></strong> <%= t('follow_relationship.views.following') %></a> |
   <% end %>
   <% if @user.followers.count == 0 %>
-    <strong><%= @user.followers.count %></strong> フォロワー
+    <strong><%= @user.followers.count %></strong> <%= t('follow_relationship.views.followers') %>
   <% else %>
-    <a href="<%= followers_user_path unless @user.followers.count == 0 %>"><strong><%= @user.followers.count %></strong> フォロワー</a>
+    <a href="<%= followers_user_path unless @user.followers.count == 0 %>"><strong><%= @user.followers.count %></strong> <%= t('follow_relationship.views.followers') %></a>
   <% end %>
 </p>
 

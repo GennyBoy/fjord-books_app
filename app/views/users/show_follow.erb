@@ -1,3 +1,9 @@
-<h1><%= @title %></h1>
+<h1>
+  <% if current_page?(following_user_path) %>
+    <%= t('follow_relationship.views.following') %>
+  <% elsif current_page?(followers_user_path) %>
+    <%= t('follow_relationship.views.followers') %>
+  <% end %>
+</h1>
 
 <%= render 'users/shared/list' %>
