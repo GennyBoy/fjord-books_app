@@ -8,4 +8,5 @@ Rails.application.routes.draw do
       get :following, :followers, controller: :follow_relationships
     end
   end
+  resources :follow_relationships, only: :create
 end

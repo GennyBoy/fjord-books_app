@@ -1,4 +1,4 @@
-<%= form_with() do |f| %>
+<%= form_with(url: follow_relationships_path , local: true) do |f| %>
   <div><%= hidden_field_tag :followed_id, @user.id %></div>
-  <%= f.submit "フォローする" %>
+  <%= f.submit t('follow_relationship.views.follow') %>
 <% end %>
