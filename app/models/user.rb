@@ -20,6 +20,10 @@ class User < ApplicationRecord
     following << user
   end
 
+  def unfollow(user)
+    following_relationships.find_by(followed_id: user.id).destroy
+  end
+
   def following?(user)
     following.include?(user)
   end
