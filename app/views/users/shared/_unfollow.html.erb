@@ -1,0 +1,4 @@
+<%= form_with() do |f| %>
+  <div><%= hidden_field_tag :follower_id, @user.id %></div>
+  <%= f.submit "フォロー解除" %>
+<% end %>

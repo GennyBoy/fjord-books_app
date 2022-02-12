@@ -15,4 +15,8 @@ class User < ApplicationRecord
                                     inverse_of: :followed
   has_many :following, through: :following_relationships, source: :followed
   has_many :followers, through: :followed_relationships, source: :follower
+
+  def following?(user)
+    following.include?(user)
+  end
 end
