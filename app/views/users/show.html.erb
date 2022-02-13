@@ -45,12 +45,12 @@
   <% if @user.following.count == 0 %>
     <strong><%= @user.following.count %></strong> <%= t('follow_relationship.views.following') %> |
   <% else %>
-    <a href="<%= following_user_path %>"><strong><%= @user.following.count %></strong> <%= t('follow_relationship.views.following') %></a> |
+    <a href="<%= user_following_index_path(@user) %>"><strong><%= @user.following.count %></strong> <%= t('follow_relationship.views.following') %></a> |
   <% end %>
   <% if @user.followers.count == 0 %>
     <strong><%= @user.followers.count %></strong> <%= t('follow_relationship.views.followers') %>
   <% else %>
-    <a href="<%= followers_user_path unless @user.followers.count == 0 %>"><strong><%= @user.followers.count %></strong> <%= t('follow_relationship.views.followers') %></a>
+    <a href="<%= user_followers_path(@user) unless @user.followers.count == 0 %>"><strong><%= @user.followers.count %></strong> <%= t('follow_relationship.views.followers') %></a>
   <% end %>
 </p>
 
