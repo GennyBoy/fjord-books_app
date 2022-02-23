@@ -1,5 +1,13 @@
 <h1><%= t('views.common.title_show', name: User.model_name.human) %></h1>
 
+<% unless @user == current_user %>
+  <% if current_user.following?(@user) %>
+    <%= render 'users/shared/unfollow' %>
+  <% else %>
+    <%= render 'users/shared/follow' %>
+  <% end %>
+<% end %>
+
 <p>
   <strong><%= User.human_attribute_name(:email) %>:</strong>
   <%= @user.email %>
@@ -30,6 +38,24 @@
   <% if @user.avatar.attached? %>
     <br>
     <%= image_tag @user.avatar.variant(resize_to_fill: [150, 150])%>
+  <% end %>
+</p>
+
+<p>
+  <% if @user.following.count == 0 %>
+    <strong><%= @user.following.count %> <%= t('follow_relationship.views.following') %></strong> |
+  <% else %>
+    <%= link_to user_following_index_path(@user) do %>
+      <strong><%= @user.following.count %> <%= t('follow_relationship.views.following') %></strong>
+    <% end %>
+    |
+  <% end %>
+  <% if @user.followers.count == 0 %>
+    <strong><%= @user.followers.count %></strong> <%= t('follow_relationship.views.followers') %>
+  <% else %>
+    <%= link_to user_followers_path(@user) do %>
+      <strong><%= @user.followers.count %> <%= t('follow_relationship.views.followers') %></strong>
+    <% end %>
   <% end %>
 </p>
 
