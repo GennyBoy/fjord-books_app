@@ -263,3 +263,6 @@ en:
     registrations:
       edit:
         title: "Edit account"
+  reports:
+    new:
+      title: New Report

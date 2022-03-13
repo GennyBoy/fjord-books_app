@@ -3,6 +3,7 @@ ja:
     models:
       book: 本  #g
       user: ユーザ
+      report: 日報
 
     attributes:
       book:
@@ -16,3 +17,6 @@ ja:
         address: 住所
         self_introduction: 自己紹介文
         avatar: ユーザ画像
+      report:
+        title: タイトル
+        content: 内容

@@ -255,3 +255,6 @@ ja:
     registrations:
       edit:
         title: "アカウント編集"
+  reports:
+      new:
+        title: 日報作成
