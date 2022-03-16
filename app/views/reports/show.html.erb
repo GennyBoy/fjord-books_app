@@ -1,4 +1,14 @@
 <p>
+  <strong><%= t('reports.show.user') %>:</strong>
+  <%= @report.user.name %>
+</p>
+
+<p>
+  <strong><%= t('reports.show.created_at') %>:</strong>
+  <%= @report.formatted_created_datetime %>
+</p>
+
+<p>
   <strong><%= Report.human_attribute_name(:title) %>:</strong>
   <%= @report.title %>
 </p>

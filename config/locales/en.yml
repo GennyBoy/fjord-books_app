@@ -266,3 +266,6 @@ en:
   reports:
     new:
       title: New Report
+    show:
+      user: User
+      created_at: Created at
