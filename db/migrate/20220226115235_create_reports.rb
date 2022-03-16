@@ -3,7 +3,7 @@
 class CreateReports < ActiveRecord::Migration[6.1]
   def change
     create_table :reports do |t|
-      t.string :title
+      t.string :title, null: false
       t.string :content
       t.integer :user_id, null: false
 

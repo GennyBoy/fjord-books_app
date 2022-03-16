@@ -2,6 +2,7 @@
 
 class Report < ApplicationRecord
   belongs_to :user
+  validates :title, :user_id, presence: true
 
   def user
     User.find(user_id)
