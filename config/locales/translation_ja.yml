@@ -20,3 +20,4 @@ ja:
       report:
         title: タイトル
         content: 内容
+        created_at: 投稿日

@@ -269,3 +269,5 @@ en:
     show:
       user: User
       created_at: Created at
+    edit:
+      title: Editing Report
