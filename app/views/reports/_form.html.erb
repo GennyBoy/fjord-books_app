@@ -23,5 +23,6 @@
 
   <div class="actions">
     <%= form.submit %>
+    <%= link_to t('views.common.destroy'), report, data: { confirm: t('views.common.delete_confirm') }, method: :delete %>
   </div>
 <% end %>
