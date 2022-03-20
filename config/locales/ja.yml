@@ -260,7 +260,7 @@ ja:
         title: 日報作成
       show:
         user: 投稿者
-        created_at: 投稿日
+        created_at: 投稿日時
       edit:
         title: 日報を編集
       errors:
