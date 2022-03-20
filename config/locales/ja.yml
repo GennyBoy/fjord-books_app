@@ -263,5 +263,3 @@ ja:
         created_at: 投稿日
       edit:
         title: 日報を編集
-      errors:
-        unable_to_edit_others_report: 他のユーザーが作成した日報は編集できません
