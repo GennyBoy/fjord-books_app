@@ -271,3 +271,5 @@ en:
       created_at: Created at
     edit:
       title: Editing Report
+    errors:
+      unable_to_edit_others_report: Unable to edit reports created by other users
