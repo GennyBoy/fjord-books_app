@@ -2,7 +2,7 @@
 
 class ReportsController < ApplicationController
   before_action :set_report, only: %i[show edit update destroy]
-  before_action :assert_creator_is_current_user, only: %i[edit update]
+  before_action :assert_creator_is_current_user, only: %i[edit update destroy]
 
   # GET /reports or /reports.json
   def index
@@ -70,6 +70,6 @@ class ReportsController < ApplicationController
   end
 
   def assert_creator_is_current_user
-    redirect_to reports_path unless @report.user == current_user
+    redirect_to reports_path, notice: t('reports.errors.forbidden_action_for_non_creators') unless @report.user == current_user
   end
 end
