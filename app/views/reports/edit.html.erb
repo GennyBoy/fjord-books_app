@@ -1,7 +1,7 @@
 <h1><%= t('reports.edit.title') %></h1>
 
 <div class="field">
-  <%= "#{Report.human_attribute_name(:created_at)}: #{@report.formatted_created_datetime}" %>
+  <%= "#{Report.human_attribute_name(:created_at)}: #{formatted_datetime(@report.created_at)}" %>
 </div>
 
 <%= render 'form', report: @report %>

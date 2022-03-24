@@ -17,7 +17,7 @@
         <td><%= report.title %></td>
         <td><%= report.content %></td>
         <td><%= report.user.name %></td>
-        <td><%= report.formatted_created_datetime %></td>
+        <td><%= formatted_datetime(report.created_at) %></td>
         <td><%= link_to t('views.common.show'), report %></td>
       </tr>
     <% end %>

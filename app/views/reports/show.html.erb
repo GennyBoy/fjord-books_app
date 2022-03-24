@@ -5,7 +5,7 @@
 
 <p>
   <strong><%= t('reports.show.created_at') %>:</strong>
-  <%= @report.formatted_created_datetime %>
+  <%= formatted_datetime(@report.created_at) %>
 </p>
 
 <p>
