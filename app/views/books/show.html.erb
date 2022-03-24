@@ -25,4 +25,29 @@
   <%= link_to t('views.common.back'), books_path %>
 </p>
 
-<%= render 'comments/form', commentable: @book, comment: @comment %>
+<p>
+  <table>
+    <thead>
+    <tr>
+      <th><%= Comment.human_attribute_name(:content) %></th>
+      <th><%= User.model_name.human %></th>
+      <th><%= Comment.human_attribute_name(:created_at) %></th>
+      <th colspan="2"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td><%= comment.content %></td>
+        <td><%= comment.user_id %></td>
+        <td><%= formatted_datetime(comment.created_at) %></td>
+<!--    あとで編集や削除を追加するかもしれないので、一応残しておく
+        <td><%#= link_to 'Edit', edit_comment_path(comment) %></td>
+        <td><%#= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <%= render 'comments/form', commentable: @book, comment: @comment %>
+</p>
