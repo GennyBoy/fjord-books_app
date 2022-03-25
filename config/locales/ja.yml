@@ -265,3 +265,5 @@ ja:
         title: 日報を編集
       errors:
         forbidden_action_for_non_creators: 日報作成者本人以外にはできない操作です。
+  comments:
+      create: コメントする

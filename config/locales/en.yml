@@ -273,3 +273,5 @@ en:
       title: Editing Report
     errors:
       forbidden_action_for_non_creators: Forbidden actions for users not created the report.
+  comments:
+    create: Comment
