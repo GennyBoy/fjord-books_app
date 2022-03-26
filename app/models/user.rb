@@ -15,6 +15,7 @@ class User < ApplicationRecord
   # userを削除時にreportsも削除すべきか迷ったが、ユーザーとしては退会時に日報も消えてほしいだろうと思い一旦そうした。
   # サービス的には残したい(例えば、有益な情報を書いている日報もたくさんある)と思うので、サービスの全体設計として考える必要がありそう。
   has_many :reports, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   def following?(user)
     active_relationships.where(following_id: user.id).exists?
