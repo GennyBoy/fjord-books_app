@@ -1,0 +1,5 @@
+<h1><%= t('views.common.title_edit', name: Comment.model_name.human) %></h1>
+
+<%= render 'comments/form', commentable: comment.commentable, comment: comment, submit_label: t('helpers.submit.update') %>
+
+<%= link_to t('views.common.back'), polymorphic_path(comment.commentable) %>

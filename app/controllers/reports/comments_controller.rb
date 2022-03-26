@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class Reports::CommentsController < ApplicationController
-  before_action :set_report, only: %i[create destroy]
+  before_action :set_report, only: %i[create destroy update]
+  before_action :set_comment, only: %i[destroy edit update]
 
   # GET /comments or /comments.json
   def index
@@ -25,7 +26,7 @@ class Reports::CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @report, notice: 'Comment was successfully created.' }
+        format.html { redirect_to @report, notice: t('controllers.common.notice_create', name: Comment.model_name.human) }
       else
         format.html { redirect_to @report, notice: 'エラーが発生したため保存に失敗しました。' }
       end
@@ -36,24 +37,26 @@ class Reports::CommentsController < ApplicationController
   def update
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @comment }
+        format.html { redirect_to @report, notice: t('controllers.common.notice_update', name: Comment.model_name.human) }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /comments/1 or /comments/1.json
   def destroy
-    Comment.find(params[:id]).destroy
+    @comment.destroy
     respond_to do |format|
       format.html { redirect_to @report, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human) }
     end
   end
 
   private
+
+  def set_comment
+    @comment = Comment.find(params[:id])
+  end
 
   def set_report
     @report = Report.find(params[:report_id])

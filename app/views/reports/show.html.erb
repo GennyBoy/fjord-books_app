@@ -27,5 +27,5 @@
 
 <p>
   <%= render 'comments/list', comments: @comments %>
-  <%= render 'comments/form', commentable: @report, comment: @comment %>
+  <%= render 'comments/form', commentable: @report, comment: @comment, submit_label: t('comments.create') %>
 </p>
