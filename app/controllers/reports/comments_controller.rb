@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Reports::CommentsController < ApplicationController
-  before_action :set_report, only: :create
+  before_action :set_report, only: %i[create destroy]
 
   # GET /comments or /comments.json
   def index
@@ -47,10 +47,9 @@ class Reports::CommentsController < ApplicationController
 
   # DELETE /comments/1 or /comments/1.json
   def destroy
-    @comment.destroy
+    Comment.find(params[:id]).destroy
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to @report, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human) }
     end
   end
 

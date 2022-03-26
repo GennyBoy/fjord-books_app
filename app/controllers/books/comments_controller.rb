@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Books::CommentsController < ApplicationController
-  before_action :set_book, only: :create
+  before_action :set_book, only: %i[create destroy]
 
   # GET /comments or /comments.json
   def index
@@ -47,12 +47,10 @@ class Books::CommentsController < ApplicationController
   end
 
   # DELETE /comments/1 or /comments/1.json
-  # TODO : 歓迎要件
   def destroy
-    @comment.destroy
+    Comment.find(params[:id]).destroy
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to @book, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human) }
     end
   end
 
