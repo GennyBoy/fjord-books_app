@@ -3,6 +3,7 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: %i[show edit update destroy]
   before_action :assert_creator_is_current_user, only: %i[edit update destroy]
+  before_action :initialize_comment, only: :show
 
   # GET /reports or /reports.json
   def index
@@ -10,7 +11,9 @@ class ReportsController < ApplicationController
   end
 
   # GET /reports/1 or /reports/1.json
-  def show; end
+  def show
+    @comments = @report.comments.order(:id)
+  end
 
   # GET /reports/new
   def new
@@ -71,5 +74,9 @@ class ReportsController < ApplicationController
 
   def assert_creator_is_current_user
     redirect_to reports_path, notice: t('reports.errors.forbidden_action_for_non_creators') unless @report.user == current_user
+  end
+
+  def initialize_comment
+    @comment = Comment.new
   end
 end

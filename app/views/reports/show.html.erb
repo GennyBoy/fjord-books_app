@@ -1,6 +1,6 @@
 <p>
   <strong><%= t('reports.show.user') %>:</strong>
-  <%= @report.user.name %>
+  <%= name_or_email(@report.user) %>
 </p>
 
 <p>
@@ -18,7 +18,14 @@
   <%= @report.content %>
 </p>
 
-<% if current_user == @report.user %>
-  <%= link_to t('views.common.edit'), edit_report_path(@report) %> |
-<% end %>
-<%= link_to t('views.common.back'), reports_path %>
+<p>
+  <% if current_user == @report.user %>
+    <%= link_to t('views.common.edit'), edit_report_path(@report) %> |
+  <% end %>
+  <%= link_to t('views.common.back'), reports_path %>
+</p>
+
+<p>
+  <%= render 'comments/list', comments: @comments %>
+  <%= render 'comments/form', commentable: @report, comment: @comment %>
+</p>
