@@ -54,15 +54,19 @@ class Reports::CommentsController < ApplicationController
 
   private
 
+  def assert_creator_is_current_user
+    redirect_to reports_path, notice: t('errors.messages.forbidden_action_for_others') unless @report.user == current_user
+  end
+
+  def comment_params
+    params.require(:comment).permit(:content).merge({ user_id: current_user.id })
+  end
+
   def set_comment
     @comment = Comment.find(params[:id])
   end
 
   def set_report
     @report = Report.find(params[:report_id])
-  end
-
-  def comment_params
-    params.require(:comment).permit(:content).merge({ user_id: current_user.id })
   end
 end
