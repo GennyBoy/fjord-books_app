@@ -8,9 +8,4 @@ class Report < ApplicationRecord
   def user
     User.find(user_id)
   end
-
-  # TODO : 後で考える
-  def comment(comment)
-    report.comments << comment
-  end
 end
