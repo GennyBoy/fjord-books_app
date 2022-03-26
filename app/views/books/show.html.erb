@@ -40,7 +40,7 @@
     <% @comments.each do |comment| %>
       <tr>
         <td><%= comment.content %></td>
-        <td><%= comment.user_id %></td>
+        <td><%= comment.user.name %></td>
         <td><%= formatted_datetime(comment.created_at) %></td>
 <!--    あとで編集や削除を追加するかもしれないので、一応残しておく
         <td><%#= link_to 'Edit', edit_comment_path(comment) %></td>
