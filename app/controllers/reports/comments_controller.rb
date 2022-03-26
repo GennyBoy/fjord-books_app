@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 class Reports::CommentsController < ApplicationController
-  before_action :set_report, only: %i[create destroy update]
+  before_action :set_report, only: %i[create edit destroy update]
   before_action :set_comment, only: %i[destroy edit update]
+  before_action :assert_creator_is_current_user, only: %i[create destroy edit update]
 
   # GET /comments or /comments.json
   def index
@@ -55,7 +56,7 @@ class Reports::CommentsController < ApplicationController
   private
 
   def assert_creator_is_current_user
-    redirect_to reports_path, notice: t('errors.messages.forbidden_action_for_others') unless @report.user == current_user
+    redirect_to @report, notice: t('errors.messages.forbidden_action_for_others') unless @comment.user == current_user
   end
 
   def comment_params
