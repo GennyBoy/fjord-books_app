@@ -4,7 +4,10 @@
   <%= "#{Report.human_attribute_name(:created_at)}: #{formatted_datetime(@report.created_at)}" %>
 </div>
 
-<%= render 'form', report: @report %>
+<p>
+  <%= render 'form', report: @report %>
+  <%= link_to t('views.common.destroy'), @report, data: { confirm: t('views.common.delete_confirm') }, method: :delete %>
+</p>
 
 <%= link_to t('views.common.show'), @report %> |
 <%= link_to t('views.common.back'), reports_path %>
