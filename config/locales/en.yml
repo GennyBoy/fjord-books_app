@@ -227,6 +227,7 @@ en:
       title_show: "%{name} Details"
       sign_out: "Sign out"
       minimum_length: "%{length} characters minimum"
+      error_explanation: "prohibited this comment from being saved"
     pagination:
       first: First
       last: Last
@@ -274,3 +275,4 @@ en:
       title: Editing Report
   comments:
     create: Comment
+    comments_not_exist: There is no comment.

@@ -219,6 +219,7 @@ ja:
       title_show: "%{name}の詳細"
       sign_out: ログアウト
       minimum_length: "%{length}文字以上"
+      error_explanation: "件のエラーが発生しました"
     pagination:
       first: '最初'
       last: '最後'
@@ -266,3 +267,4 @@ ja:
         title: 日報を編集
   comments:
       create: コメントする
+      comments_not_exist: コメントがありません。
