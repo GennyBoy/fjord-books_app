@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @commentable, notice: t('controllers.common.notice_create', name: Comment.model_name.human)
     else
-      redirect_to @commentable, notice: 'エラーが発生したため保存に失敗しました。'
+      redirect_to @commentable, notice: t('errors.messages.failed_to_save')
     end
   end
 

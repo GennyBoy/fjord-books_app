@@ -140,6 +140,7 @@ en:
         one: is the wrong length (should be 1 character)
         other: is the wrong length (should be %{count} characters)
       forbidden_action_for_others: forbidden actions for others
+      failed_to_save: failed to save due to errors
     template:
       body: 'There were problems with the following fields:'
       header:

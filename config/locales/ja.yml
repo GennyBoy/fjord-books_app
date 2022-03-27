@@ -134,6 +134,7 @@ ja:
       too_short: は%{count}文字以上で入力してください
       wrong_length: は%{count}文字で入力してください
       forbidden_action_for_others: 本人以外にはできない操作です
+      failed_to_save: エラーが発生したため保存できませんでした
     template:
       body: 次の項目を確認してください
       header:
