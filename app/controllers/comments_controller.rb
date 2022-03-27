@@ -5,10 +5,6 @@ class CommentsController < ApplicationController
   before_action :set_commentable, only: %i[create edit destroy update]
   before_action :assert_creator_is_current_user, only: %i[destroy edit update]
 
-  def index
-    @comments = Comment.all
-  end
-
   def edit; end
 
   def create
