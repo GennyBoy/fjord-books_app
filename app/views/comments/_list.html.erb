@@ -14,7 +14,7 @@
     <tbody>
     <% comments.each do |comment| %>
       <tr>
-        <td><%= sanitize h(comment.content).gsub(/\n|\r|\r\n/, "<br>") %></td>
+        <td><%= simple_format(comment.content, sanitize: true) %></td>
         <td><%= name_or_email(comment.user) %></td>
         <td><%= formatted_datetime(comment.created_at) %></td>
         <td><%= link_to t('views.common.edit'), edit_polymorphic_path([comment.commentable, comment]) if comment.user == current_user %></td>

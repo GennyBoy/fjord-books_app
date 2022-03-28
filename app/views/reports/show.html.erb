@@ -15,7 +15,7 @@
 
 <p>
   <strong><%= Report.human_attribute_name(:content) %>:</strong>
-  <%= @report.content %>
+  <%= simple_format(@report.content, sanitize: true) %>
 </p>
 
 <p>
