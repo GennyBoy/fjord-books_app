@@ -20,7 +20,7 @@ class ReportsController < ApplicationController
   def edit; end
 
   def create
-    @report = Report.new(report_params)
+    @report = current_user.reports.new(report_params)
 
     if @report.save
       redirect_to @report, notice: t('controllers.common.notice_create', name: Report.model_name.human)
@@ -49,7 +49,7 @@ class ReportsController < ApplicationController
   end
 
   def report_params
-    params.require(:report).permit(:title, :content).merge({ user_id: current_user.id })
+    params.require(:report).permit(:title, :content)
   end
 
   def assert_creator_is_current_user
