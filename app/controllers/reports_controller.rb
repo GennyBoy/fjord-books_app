@@ -6,7 +6,7 @@ class ReportsController < ApplicationController
   before_action :initialize_comment, only: :show
 
   def index
-    @reports = Report.order(:id).page(params[:page])
+    @reports = Report.order(id: :desc).page(params[:page])
   end
 
   def show
