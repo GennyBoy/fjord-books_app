@@ -36,15 +36,6 @@ class CommentsController < ApplicationController
     redirect_to @commentable, notice: t('errors.messages.forbidden_action_for_others') unless @comment.user == current_user
   end
 
-  def set_commentable
-    @commentable =
-      if params[:book_id]
-        Book.find(params[:book_id])
-      elsif params[:report_id]
-        Report.find(params[:report_id])
-      end
-  end
-
   def set_comment
     @comment = Comment.find(params[:id])
   end
