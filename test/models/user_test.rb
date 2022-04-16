@@ -3,6 +3,15 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
+  test '#following?' do
+    me = User.create!(email: 'me@example.com', password: 'password')
+    she = User.create!(email: 'she@example.com', password: 'password')
+
+    assert_not me.following?(she)
+    me.follow(she)
+    assert me.following?(she)
+  end
+
   test '#followed_by?' do
     me = User.create!(email: 'me@example.com', password: 'password')
     she = User.create!(email: 'she@example.com', password: 'password')
