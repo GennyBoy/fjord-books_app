@@ -22,12 +22,14 @@ class UserTest < ActiveSupport::TestCase
 
   test '#follow' do
     assert_not @me.following?(@she)
+
     @me.follow(@she)
     assert @me.following?(@she)
   end
 
   test '#unfollow' do
     @me.follow(@she)
+    assert @me.following?(@she)
 
     @me.unfollow(@she)
     assert_not @me.following?(@she)
