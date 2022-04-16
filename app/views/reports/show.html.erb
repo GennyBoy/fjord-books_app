@@ -1,0 +1,31 @@
+<p>
+  <strong><%= t('reports.show.user') %>:</strong>
+  <%= name_or_email(@report.user) %>
+</p>
+
+<p>
+  <strong><%= t('reports.show.created_at') %>:</strong>
+  <%= formatted_datetime(@report.created_at) %>
+</p>
+
+<p>
+  <strong><%= Report.human_attribute_name(:title) %>:</strong>
+  <%= @report.title %>
+</p>
+
+<p>
+  <strong><%= Report.human_attribute_name(:content) %>:</strong>
+  <%= simple_format(@report.content, sanitize: true) %>
+</p>
+
+<p>
+  <% if current_user == @report.user %>
+    <%= link_to t('views.common.edit'), edit_report_path(@report) %> |
+  <% end %>
+  <%= link_to t('views.common.back'), reports_path %>
+</p>
+
+<p>
+  <%= render 'comments/list', comments: @comments %>
+  <%= render 'comments/form', commentable: @report, comment: @comment, submit_label: t('comments.create') %>
+</p>

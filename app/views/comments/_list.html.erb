@@ -1,0 +1,26 @@
+<% if comments.none? %>
+  <%= t('comments.comments_not_exist') %>
+<% else %>
+  <table>
+    <thead>
+    <tr>
+      <th><%= Comment.model_name.human %></th>
+      <th><%= User.model_name.human %></th>
+      <th><%= Comment.human_attribute_name(:created_at) %></th>
+      <th colspan="2"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% comments.each do |comment| %>
+      <tr>
+        <td><%= simple_format(comment.content, sanitize: true) %></td>
+        <td><%= name_or_email(comment.user) %></td>
+        <td><%= formatted_datetime(comment.created_at) %></td>
+        <td><%= link_to t('views.common.edit'), edit_polymorphic_path([comment.commentable, comment]) if comment.user == current_user %></td>
+        <td><%= link_to t('views.common.destroy'), polymorphic_url([comment.commentable, comment]), method: :delete, data: { confirm: t('views.common.delete_confirm') } if comment.user == current_user %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>

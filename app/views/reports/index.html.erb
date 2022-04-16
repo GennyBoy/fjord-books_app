@@ -1,0 +1,31 @@
+<h1><%= Report.model_name.human %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= Report.human_attribute_name(:title) %></th>
+      <th><%= Report.human_attribute_name(:content) %></th>
+      <th><%= t('reports.show.user') %></th>
+      <th><%= Report.human_attribute_name(:created_at) %></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reports.each do |report| %>
+      <tr>
+        <td><%= report.title %></td>
+        <td><%= report.content %></td>
+        <td><%= report.user.name %></td>
+        <td><%= formatted_datetime(report.created_at) %></td>
+        <td><%= link_to t('views.common.show'), report %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @reports %>
+
+<br>
+
+<%= link_to t('views.common.new'), new_report_path %>

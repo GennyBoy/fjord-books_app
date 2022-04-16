@@ -133,6 +133,8 @@ ja:
       too_long: は%{count}文字以内で入力してください
       too_short: は%{count}文字以上で入力してください
       wrong_length: は%{count}文字で入力してください
+      forbidden_action_for_others: 本人以外にはできない操作です
+      failed_to_save: エラーが発生したため保存できませんでした
     template:
       body: 次の項目を確認してください
       header:
@@ -218,6 +220,7 @@ ja:
       title_show: "%{name}の詳細"
       sign_out: ログアウト
       minimum_length: "%{length}文字以上"
+      error_explanation: "件のエラーが発生しました"
     pagination:
       first: '最初'
       last: '最後'
@@ -255,3 +258,14 @@ ja:
     registrations:
       edit:
         title: "アカウント編集"
+  reports:
+      new:
+        title: 日報作成
+      show:
+        user: 投稿者
+        created_at: 投稿日時
+      edit:
+        title: 日報を編集
+  comments:
+      create: コメントする
+      comments_not_exist: コメントがありません。

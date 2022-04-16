@@ -139,6 +139,8 @@ en:
       wrong_length:
         one: is the wrong length (should be 1 character)
         other: is the wrong length (should be %{count} characters)
+      forbidden_action_for_others: forbidden actions for others
+      failed_to_save: failed to save due to errors
     template:
       body: 'There were problems with the following fields:'
       header:
@@ -226,6 +228,7 @@ en:
       title_show: "%{name} Details"
       sign_out: "Sign out"
       minimum_length: "%{length} characters minimum"
+      error_explanation: "prohibited this comment from being saved"
     pagination:
       first: First
       last: Last
@@ -263,3 +266,14 @@ en:
     registrations:
       edit:
         title: "Edit account"
+  reports:
+    new:
+      title: New Report
+    show:
+      user: User
+      created_at: Created at
+    edit:
+      title: Editing Report
+  comments:
+    create: Comment
+    comments_not_exist: There is no comment.
