@@ -35,11 +35,13 @@ class UserTest < ActiveSupport::TestCase
     assert_not @me.following?(@she)
   end
 
-  test '#name_or_email' do
+  test '#name_or_email returns email when name does NOT exist' do
     user = User.new(email: 'foo@example.com', name: '')
     assert_equal 'foo@example.com', user.name_or_email
+  end
 
-    user.name = 'Foo Bar'
+  test '#name_or_email returns name when name exists' do
+    user = User.new(email: 'foo@example.com', name: 'Foo Bar')
     assert_equal 'Foo Bar', user.name_or_email
   end
 end
