@@ -71,13 +71,17 @@ User.destroy_all
 User.transaction do
   55.times do |n|
     name = Faker::Name.name
-    User.create!(
+    user = User.create!(
       email: "sample-#{n}@example.com",
       password: 'password',
       name: name,
       postal_code: "123-#{n.to_s.rjust(4, '0')}",
       address: Faker::Address.full_address,
       self_introduction: "こんにちは、#{name}です。"
+    )
+    user.reports.create!(
+      title: "report no.#{n}",
+      content: "This is #{n}th report's content"
     )
   end
 end
