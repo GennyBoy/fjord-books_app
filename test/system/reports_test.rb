@@ -4,15 +4,13 @@ require 'application_system_test_case'
 
 class ReportsTest < ApplicationSystemTestCase
   setup do
+    @login_user = users(:alice)
     visit root_url
-    fill_in 'Eメール', with: 'alice@example.com'
+    fill_in 'Eメール', with: @login_user.email
     fill_in 'パスワード', with: 'password'
     click_on 'ログイン'
   end
 
-  # メールアドレスとパスワードでログインして日報を書く、
-  # という一連の流れをシステムテストで書く
-  # 日報の編集や日報の削除もテストコードを書く
   test '日報を作成する' do
     visit reports_url
     click_on '新規作成'
@@ -34,9 +32,13 @@ class ReportsTest < ApplicationSystemTestCase
   end
 
   test '日報を編集する' do
-    # TODO 後でここのテストデータを FactoryBotに置き換える
+    report_to_edit = create(:report, user: @login_user)
     visit reports_url
     click_on '編集', exact: true, match: :first
+
+    # 更新されていることを確かにするため、最初の入力値も確認しておく
+    assert "#report_title[value='#{report_to_edit.title}']"
+    assert "#report_content[value='#{report_to_edit.content}']"
 
     fill_in 'タイトル', with: 'Aliceの編集後レポートのタイトル'
     fill_in '内容', with: 'Aliceの編集後のレポートの内容'
@@ -48,12 +50,17 @@ class ReportsTest < ApplicationSystemTestCase
   end
 
   test '日報を削除する' do
-    # TODO 後でここのテストデータを FactoryBotに置き換える
+    report_to_delete = create(:report, user: @login_user)
     visit reports_url
+
+    assert_text report_to_delete.title
+
     page.accept_confirm do
       click_on '削除', match: :first
     end
 
     assert_text '日報が削除されました。'
+
+    assert_no_text report_to_delete.title
   end
 end
